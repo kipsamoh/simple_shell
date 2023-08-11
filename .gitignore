@@ -1,0 +1,6 @@
+# Ignore vi buffer files
+*#
+*~
+
+# Ignore executable file
+*.out
