@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * strcat_cd - function that concatenates the message for cd error
+ * strcat_cd - concatenates msg for change directory error msg
  *
- * @datash: data relevant (directory)
- * @msg: message to print
- * @error: output message
+ * @datash:  relevant data (directory)
+ * @msg: output msg error
+ * @error: output msg
  * @ver_str: counter lines
- * Return: error message
+ * Return: error msg
  */
 char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
 {
@@ -39,13 +39,13 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
 }
 
 /**
- * error_get_cd - error message for cd command in get_cd
- * @datash: data relevant (directory)
+ * error_get_cd - error msg for cd command in get_cd
+ * @datash: relevant data (directory)
  * Return: Error message
  */
 char *error_get_cd(data_shell *datash)
 {
-	int length, len_id;
+	int leng_th, len_id;
 	char *error, *ver_str, *msg;
 
 	ver_str = aux_itoa(datash->counter);
@@ -60,9 +60,9 @@ char *error_get_cd(data_shell *datash)
 		len_id = _strlen(datash->args[1]);
 	}
 
-	length = _strlen(datash->av[0]) + _strlen(datash->args[0]);
-	length += _strlen(ver_str) + _strlen(msg) + len_id + 5;
-	error = malloc(sizeof(char) * (length + 1));
+	leng_th = _strlen(datash->av[0]) + _strlen(datash->args[0]);
+	leng_th += _strlen(ver_str) + _strlen(msg) + len_id + 5;
+	error = malloc(sizeof(char) * (leng_th + 1));
 
 	if (error == 0)
 	{
@@ -78,20 +78,20 @@ char *error_get_cd(data_shell *datash)
 }
 
 /**
- * error_not_found - generic error message for command not found
- * @datash: data relevant (counter, arguments)
- * Return: Error message
+ * error_not_found - generic error msg for command not found
+ * @datash: relevant data (counter, arguments)
+ * Return: Error msg
  */
 char *error_not_found(data_shell *datash)
 {
-	int length;
+	int leng_th;
 	char *error;
 	char *ver_str;
 
 	ver_str = aux_itoa(datash->counter);
-	length = _strlen(datash->av[0]) + _strlen(ver_str);
-	length += _strlen(datash->args[0]) + 16;
-	error = malloc(sizeof(char) * (length + 1));
+	leng_th = _strlen(datash->av[0]) + _strlen(ver_str);
+	leng_th += _strlen(datash->args[0]) + 16;
+	error = malloc(sizeof(char) * (leng_th + 1));
 	if (error == 0)
 	{
 		free(error);
@@ -110,21 +110,21 @@ char *error_not_found(data_shell *datash)
 }
 
 /**
- * error_exit_shell - generic error message for exit in get_exit
- * @datash: data relevant (counter, arguments)
+ * error_exit_shell - generic error msg for exit in get_exit
+ * @datash: relevant data (counter, arguments)
  *
- * Return: Error message
+ * Return: Error msg
  */
 char *error_exit_shell(data_shell *datash)
 {
-	int length;
+	int leng_th;
 	char *error;
 	char *ver_str;
 
 	ver_str = aux_itoa(datash->counter);
-	length = _strlen(datash->av[0]) + _strlen(ver_str);
-	length += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
-	error = malloc(sizeof(char) * (length + 1));
+	leng_th = _strlen(datash->av[0]) + _strlen(ver_str);
+	leng_th += _strlen(datash->args[0]) + _strlen(datash->args[1]) + 23;
+	error = malloc(sizeof(char) * (leng_th + 1));
 	if (error == 0)
 	{
 		free(ver_str);
