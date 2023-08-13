@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * error_env - error message for env in get_env.
- * @datash: data relevant (counter, arguments)
- * Return: error message.
+ * error_env - error msg for environment in get_env.
+ * @datash: relevant data(counter, arguments)
+ * Return: error msg.
  */
 char *error_env(data_shell *datash)
 {
-	int length;
+	int leng_th;
 	char *error;
 	char *ver_str;
 	char *msg;
 
 	ver_str = aux_itoa(datash->counter);
 	msg = ": Unable to add/remove from environment\n";
-	length = _strlen(datash->av[0]) + _strlen(ver_str);
-	length += _strlen(datash->args[0]) + _strlen(msg) + 4;
-	error = malloc(sizeof(char) * (length + 1));
+	leng_th = _strlen(datash->av[0]) + _strlen(ver_str);
+	leng_th += _strlen(datash->args[0]) + _strlen(msg) + 4;
+	error = malloc(sizeof(char) * (leng_th + 1));
 	if (error == 0)
 	{
 		free(error);
@@ -36,21 +36,21 @@ char *error_env(data_shell *datash)
 	return (error);
 }
 /**
- * error_path_126 - error message for path and failure denied permission.
- * @datash: data relevant (counter, arguments).
+ * error_path_126 - error msg for & failure denied permission.
+ * @datash: relevant data (counter, arguments).
  *
- * Return: The error string.
+ * Return: The error str.
  */
 char *error_path_126(data_shell *datash)
 {
-	int length;
+	int leng_th;
 	char *ver_str;
 	char *error;
 
 	ver_str = aux_itoa(datash->counter);
 	length = _strlen(datash->av[0]) + _strlen(ver_str);
 	length += _strlen(datash->args[0]) + 24;
-	error = malloc(sizeof(char) * (length + 1));
+	error = malloc(sizeof(char) * (leng_th + 1));
 	if (error == 0)
 	{
 		free(error);
