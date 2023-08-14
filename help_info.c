@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * aux_help_env - Help information for the builtin env
- * Return: no return
+ * aux_help_env - Help information for the builtin environment
+ * Return: void
  */
 void aux_help_env(void)
 {
@@ -14,8 +14,8 @@ void aux_help_env(void)
 
 }
 /**
- * aux_help_setenv - Help information for the builtin setenv
- * Return: no return
+ * aux_help_setenv - Help information for the builtin set environment
+ * Return: void
  */
 void aux_help_setenv(void)
 {
@@ -29,8 +29,8 @@ void aux_help_setenv(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 }
 /**
- * aux_help_unsetenv - Help information for the builtin unsetenv
- * Return: no return
+ * aux_help_unset environment - Help information for the builtin unset environment
+ * Return: void
  */
 void aux_help_unsetenv(void)
 {
@@ -44,7 +44,7 @@ void aux_help_unsetenv(void)
 
 /**
  * aux_help_general - Entry point for help information for the help builtin
- * Return: no return
+ * Return: void
  */
 void aux_help_general(void)
 {
@@ -65,8 +65,8 @@ void aux_help_general(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 }
 /**
- * aux_help_exit - Help information fot the builint exit
- * Return: no return
+ * aux_help_exit - Help infor_mation fot the buil_in exit
+ * Return: void
  */
 void aux_help_exit(void)
 {
