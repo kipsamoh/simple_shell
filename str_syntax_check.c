@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * repeated_char - counts the repetitions of a char
+ * repeated_char - counts repetitions of character
  *
- * @input: input string
+ * @input: input str
  * @i: index
- * Return: repetitions
+ * Return: repetition
  */
 int repeated_char(char *input, int i)
 {
@@ -16,19 +16,19 @@ int repeated_char(char *input, int i)
 }
 
 /**
- * error_sep_op - finds syntax errors
+ * error_sep_op - finds syntax error
  *
- * @input: input string
+ * @input: input str
  * @i: index
- * @last: last char read
+ * @last: last character read
  * Return: index of error. 0 when there are no
  * errors
  */
 int error_sep_op(char *input, int i, char last)
 {
-	int count;
+	int sum;
 
-	count = 0;
+	sum = 0;
 	if (*input == '\0')
 		return (0);
 
@@ -46,8 +46,8 @@ int error_sep_op(char *input, int i, char last)
 
 		if (last == '|')
 		{
-			count = repeated_char(input, 0);
-			if (count == 0 || count > 1)
+			sum = repeated_char(input, 0);
+			if (sum == 0 || sum > 1)
 				return (i);
 		}
 	}
@@ -59,8 +59,8 @@ int error_sep_op(char *input, int i, char last)
 
 		if (last == '&')
 		{
-			count = repeated_char(input, 0);
-			if (count == 0 || count > 1)
+			sum = repeated_char(input, 0);
+			if (sum == 0 || sum > 1)
 				return (i);
 		}
 	}
@@ -69,9 +69,9 @@ int error_sep_op(char *input, int i, char last)
 }
 
 /**
- * first_char - finds index of the first char
+ * first_char - finds index of the first character
  *
- * @input: input string
+ * @input: input str
  * @i: index
  * Return: 1 if there is an error. 0 in other case.
  */
@@ -93,7 +93,7 @@ int first_char(char *input, int *i)
 }
 
 /**
- * print_syntax_error - prints when a syntax error is found
+ * print_syntax_error - prints syntax if there
  *
  * @datash: data structure
  * @input: input string
@@ -103,8 +103,8 @@ int first_char(char *input, int *i)
  */
 void print_syntax_error(data_shell *datash, char *input, int i, int bool)
 {
-	char *msg, *msg2, *msg3, *error, *counter;
-	int length;
+	char *msg, *msg1, *msg2, *error, *counter;
+	int len_gth;
 
 	if (input[i] == ';')
 	{
@@ -120,13 +120,13 @@ void print_syntax_error(data_shell *datash, char *input, int i, int bool)
 	if (input[i] == '&')
 		msg = (input[i + 1] == '&' ? "&&" : "&");
 
-	msg2 = ": Syntax error: \"";
-	msg3 = "\" unexpected\n";
+	msg1 = ": Syntax error: \"";
+	msg2 = "\" unexpected\n";
 	counter = aux_itoa(datash->counter);
-	length = _strlen(datash->av[0]) + _strlen(counter);
-	length += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
+	len_gth = _strlen(datash->av[0]) + _strlen(counter);
+	len_gth += _strlen(msg) + _strlen(msg1) + _strlen(msg2) + 2;
 
-	error = malloc(sizeof(char) * (length + 1));
+	error = malloc(sizeof(char) * (len_gth + 1));
 	if (error == 0)
 	{
 		free(counter);
@@ -135,41 +135,41 @@ void print_syntax_error(data_shell *datash, char *input, int i, int bool)
 	_strcpy(error, datash->av[0]);
 	_strcat(error, ": ");
 	_strcat(error, counter);
-	_strcat(error, msg2);
+	_strcat(error, msg1);
 	_strcat(error, msg);
-	_strcat(error, msg3);
+	_strcat(error, msg2);
 	_strcat(error, "\0");
 
-	write(STDERR_FILENO, error, length);
+	write(STDERR_FILENO, error, len_gth);
 	free(error);
 	free(counter);
 }
 
 /**
- * check_syntax_error - intermediate function to
+ * check_syntax_error - interme_diate function to
  * find and print a syntax error
  *
  * @datash: data structure
- * @input: input string
+ * @input: input str
  * Return: 1 if there is an error. 0 in other case
  */
 int check_syntax_error(data_shell *datash, char *input)
 {
-	int begin = 0;
+	int start = 0;
 	int f_char = 0;
-	int i = 0;
+	int x = 0;
 
-	f_char = first_char(input, &begin);
+	f_char = first_char(input, &start);
 	if (f_char == -1)
 	{
-		print_syntax_error(datash, input, begin, 0);
+		print_syntax_error(datash, input, start, 0);
 		return (1);
 	}
 
-	i = error_sep_op(input + begin, 0, *(input + begin));
-	if (i != 0)
+	x = error_sep_op(input + start, 0, *(input + start));
+	if (x != 0)
 	{
-		print_syntax_error(datash, input, begin + i, 1);
+		print_syntax_error(datash, input, start + x, 1);
 		return (1);
 	}
 
