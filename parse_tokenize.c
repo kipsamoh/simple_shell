@@ -182,7 +182,7 @@ char **split_line(char *input)
 	char *token;
 
 	buffsize = TOK_BUFSIZE;
-	tokens = malloc(sizeof(char *) * (bsize));
+	tokens = malloc(sizeof(char *) * (buffsize));
 	if (tokens == NULL)
 	{
 		write(STDERR_FILENO, ": allocation error\n", 18);

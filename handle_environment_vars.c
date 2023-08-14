@@ -52,7 +52,7 @@ void check_env(r_var **h, char *in, data_shell *data)
  */
 int check_vars(r_var **h, char *in, char *st, data_shell *data)
 {
-	int x, lst, l_pd;
+	int x, l_st, l_pd;
 
 	l_st = _strlen(st);
 	l_pd = _strlen(data->pid);
@@ -100,7 +100,7 @@ char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
 	indx = *head;
 	for (y = x = 0; x < nlen; x++)
 	{
-		if (input[j] == '$')
+		if (input[y] == '$')
 		{
 			if (!(indx->len_var) && !(indx->len_val))
 			{
