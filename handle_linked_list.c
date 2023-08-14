@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * add_sep_node_end - adds a separator found at the end
+ * add_sep_node_end - adds a sep_arator found at the end
  * of a sep_list.
- * @head: head of the linked list.
+ * @head: linked list head.
  * @sep: separator found (; | &).
- * Return: address of the head.
+ * Return: head address.
  */
 sep_list *add_sep_node_end(sep_list **head, char sep)
 {
@@ -41,14 +41,14 @@ sep_list *add_sep_node_end(sep_list **head, char sep)
 void free_sep_list(sep_list **head)
 {
 	sep_list *temp;
-	sep_list *curr;
+	sep_list *current;
 
 	if (head != NULL)
 	{
-		curr = *head;
-		while ((temp = curr) != NULL)
+		current = *head;
+		while ((temp = current) != NULL)
 		{
-			curr = curr->next;
+			current = current->next;
 			free(temp);
 		}
 		*head = NULL;
@@ -56,11 +56,11 @@ void free_sep_list(sep_list **head)
 }
 
 /**
- * add_line_node_end - adds a command line at the end
+ * add_line_node_end - adds a cmd line at the end
  * of a line_list.
- * @head: head of the linked list.
+ * @head: linked list head.
  * @line: command line.
- * Return: address of the head.
+ * Return: head address.
  */
 line_list *add_line_node_end(line_list **head, char *line)
 {
@@ -90,20 +90,20 @@ line_list *add_line_node_end(line_list **head, char *line)
 
 /**
  * free_line_list - frees a line_list
- * @head: head of the linked list.
- * Return: no return.
+ * @head: linked list head.
+ * Return: void.
  */
 void free_line_list(line_list **head)
 {
 	line_list *temp;
-	line_list *curr;
+	line_list *current;
 
 	if (head != NULL)
 	{
-		curr = *head;
-		while ((temp = curr) != NULL)
+		current = *head;
+		while ((temp = current) != NULL)
 		{
-			curr = curr->next;
+			current = current->next;
 			free(temp);
 		}
 		*head = NULL;
