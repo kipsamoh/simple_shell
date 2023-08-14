@@ -1,78 +1,78 @@
 #include "main.h"
 
 /**
- * get_len - Get the lenght of a number.
- * @n: type int number.
- * Return: Lenght of a number.
+ * get_len - Get the lenght of a num.
+ * @n: type int num.
+ * Return: num lenght.
  */
 int get_len(int n)
 {
-	unsigned int n1;
-	int lenght = 1;
+	unsigned int n_1;
+	int len_ght = 1;
 
 	if (n < 0)
 	{
-		lenght++;
-		n1 = n * -1;
+		len_ght++;
+		n_1 = n * -1;
 	}
 	else
 	{
-		n1 = n;
+		n_1 = n;
 	}
-	while (n1 > 9)
+	while (n_1 > 9)
 	{
-		lenght++;
-		n1 = n1 / 10;
+		len_ght++;
+		n_1 = n_1 / 10;
 	}
 
-	return (lenght);
+	return (len_ght);
 }
 /**
- * aux_itoa - function converts int to string.
- * @n: type int number
- * Return: String.
+ * aux_itoa - function converts int to str.
+ * @n: type int num
+ * Return: Str.
  */
 char *aux_itoa(int n)
 {
-	unsigned int n1;
-	int lenght = get_len(n);
+	unsigned int n_1;
+	int len_ght = get_len(n);
 	char *buffer;
 
-	buffer = malloc(sizeof(char) * (lenght + 1));
+	buffer = malloc(sizeof(char) * (len_ght + 1));
 	if (buffer == 0)
 		return (NULL);
 
-	*(buffer + lenght) = '\0';
+	*(buffer + len_ght) = '\0';
 
 	if (n < 0)
 	{
-		n1 = n * -1;
+		n_1 = n * -1;
 		buffer[0] = '-';
 	}
 	else
 	{
-		n1 = n;
+		n_1 = n;
 	}
 
-	lenght--;
+	len_ght--;
 	do {
-		*(buffer + lenght) = (n1 % 10) + '0';
-		n1 = n1 / 10;
-		lenght--;
+		*(buffer + len_ght) = (n_1 % 10) + '0';
+		n_1 = n_1 / 10;
+		len_ght--;
 	}
-	while (n1 > 0)
+	while (n_1 > 0)
 		;
 	return (buffer);
 }
 
 /**
- * _atoi - converts a string to an integer.
- * @s: input string.
+ * _atoi - converts a str to an int.
+ * @s: input str.
  * Return: integer.
  */
 int _atoi(char *s)
 {
-	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
+	unsigned int count = 0, size = 0, o_i = 0, pn = 1, y = 1, x;
 
 	while (*(s + count) != '\0')
 	{
@@ -91,10 +91,10 @@ int _atoi(char *s)
 		count++;
 	}
 
-	for (i = count - size; i < count; i++)
+	for (x = count - size; x < count; x++)
 	{
-		oi = oi + ((*(s + i) - 48) * m);
-		m /= 10;
+		o_i = o_i + ((*(s + x) - 48) * y);
+		y /= 10;
 	}
-	return (oi * pn);
+	return (o_i * pn);
 }
