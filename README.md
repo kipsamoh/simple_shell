@@ -1,4 +1,4 @@
-This document outlines the details of a simple UNIX shell project created by Daniel Chebet and Assefa Gebre, who are students in the ALX Software Engineering program. The project is named "Simple Shell" and is based on the functionality of the bash and Sh shells.
+This document outlines the details of a simple UNIX shell project created by Daniel Chebet  who is a students in the ALX Software Engineering program. The project is named "Simple Shell" and is based on the functionality of the bash and Sh shells.
 
 ---
 
@@ -81,8 +81,7 @@ Special interpretation for these operators:
 - `setenv`: Initialize or modify environment variables.
 - `unsetenv`: Remove environment variables.
 
-## Authors & Copyrights
+## Author & Copyrights
 
-Authors: Daniel Chebet and Assefa Gebre
+Author Daniel Chebet 
 
----
