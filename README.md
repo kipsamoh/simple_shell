@@ -16,28 +16,21 @@ To start using the Simple Shell, compile all `.c` files in the repository with t
 
 ```bash
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
-./hsh
-```
 
-The Simple Shell can be invoked interactively or non-interactively. When standard input is not connected to a terminal, it executes received commands. For instance:
-
-```bash
-$ echo "echo 'school'" | ./hsh
-'school'
-```
+The Simple Shell can be invoked interactively or non-interactively. When standard input is not connected to a terminal, it executes received commands.
 
 When standard input is connected to a terminal, interactive mode is opened with the prompt `^-^ `.
 
 ### Environment
 
-Upon invocation, the Simple Shell copies the parent process's environment. Key environmental variables include:
+Upon invocation, the Simple Shell copies the parent process's environment. someof the most used environmental variables include:
 
 - `HOME`: Home directory of the current user.
 - `PWD`: Current working directory.
 - `OLDPWD`: Previous working directory.
 - `PATH`: Colon-separated list of directories for command search.
 
-### Command Execution
+### Command run
 
 The Simple Shell tokenizes commands into words using spaces as delimiters. It then performs the following actions:
 
@@ -45,7 +38,7 @@ The Simple Shell tokenizes commands into words using spaces as delimiters. It th
 2. If not, it searches for the command in the directories listed in `PATH`.
 3. If found, it executes the program with given arguments.
 
-### Exit Status
+### Exit State
 
 The shell returns the exit status of the last executed command. Zero indicates success, and non-zero indicates failure. Return status is 127 for command not found and 126 for found but non-executable commands. Builtin commands return 0, 1, or 2 for incorrect usage.
 
@@ -53,7 +46,7 @@ The shell returns the exit status of the last executed command. Zero indicates s
 
 In interactive mode, the Simple Shell ignores ctrl+c but exits with ctrl+d (End-Of-File).
 
-### Variable Replacement
+### Variable substitution
 
 The `$` character is used for variable replacement:
 
@@ -61,7 +54,7 @@ The `$` character is used for variable replacement:
 - `$?`: Replaced with the return value of the last command.
 - `$$`: Replaced with the current process ID.
 
-### Comments
+### Comment
 
 Lines beginning with `#` are treated as comments and ignored.
 
@@ -73,7 +66,7 @@ Special interpretation for these operators:
 - `&&`: Executes the second command if the first succeeds.
 - `||`: Executes the second command if the first fails.
 
-### Builtin Commands
+### Builtin Command
 
 - `cd`: Change directory.
 - `exit`: Exit the shell.
@@ -81,7 +74,7 @@ Special interpretation for these operators:
 - `setenv`: Initialize or modify environment variables.
 - `unsetenv`: Remove environment variables.
 
-## Author & Copyrights
+## Author & Copyright
 
 Author Daniel Chebet 
 
